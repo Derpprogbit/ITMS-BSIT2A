@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luigi B. Cocjin — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #faf8f4;
+      color: #3a3228;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 0.5px solid #e0d9cf;
+      background: #faf8f4;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #3a3228;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: #7a6f65;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #3a3228; }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 3rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #e8dfd4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #7a5c44;
+      flex-shrink: 0;
+      border: 3px solid #d4c8bc;
+    }
+
+    .hero-text h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #2e2620;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-text .subtitle {
+      font-size: 0.95rem;
+      color: #7a6f65;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ede5d8;
+      color: #6b5744;
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 3rem 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: #a89888;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .divider {
+      height: 0.5px;
+      background: #e0d9cf;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #5a5048;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .personal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .pcard {
+      background: #fff;
+      border: 0.5px solid #e0d9cf;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+
+    .pcard-label {
+      font-size: 0.73rem;
+      color: #a89888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .pcard-val {
+      font-size: 0.92rem;
+      color: #3a3228;
+      font-weight: 400;
+    }
+
+    .edu-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #c9b8a4;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+
+    .edu-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #3a3228;
+      margin-bottom: 2px;
+    }
+
+    .edu-sub {
+      font-size: 0.85rem;
+      color: #7a6f65;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      background: #fff;
+      border: 0.5px solid #e0d9cf;
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.8rem;
+      color: #a89888;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .skill-pill {
+      display: inline-block;
+      background: #f0e9df;
+      color: #6b5744;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 3px 3px 3px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem;
+      font-size: 0.8rem;
+      color: #b0a498;
+      font-weight: 300;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .hero { flex-direction: column; gap: 1.5rem; padding: 2.5rem 1.5rem 2rem; text-align: center; }
+      section { padding: 2rem 1.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dashboard -->
+  <nav>
+    <span class="logo">Luigi B. Cocjin</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#personal">Personal</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </nav>
+  <!-- Profile -->
+  <div class="hero">
+    <img class="avatar" src="Luigi.jpg" alt="Luigi B. Cocjin" style="object-fit: cover;"/>
+    <div class="hero-text">
+      <h1>Luigi B. Cocjin</h1>
+      <div class="subtitle">2nd Year BSIT Student · Guagua National Colleges</div>
+      <span class="tag">IT Student</span>
+      <span class="tag">Central Luzon</span>
+      <span class="tag">Tech Enthusiast</span>
+    </div>
+  </div>
+  <!-- About me -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="divider"></div>
+    <p class="about-text">Hi! I'm Luigi, a 2nd year Bachelor of Science in Information Technology student at Guagua National Colleges. I'm passionate about technology and continuously developing my skills in the field of IT. I enjoy learning new things, solving problems, and building a strong foundation for my future career.</p>
+  </section>
+  <!-- Personal Information -->
+  <section id="personal">
+    <div class="section-label" style="margin-top: 2rem;">Personal</div>
+    <div class="divider"></div>
+    <div class="personal-grid">
+      <div class="pcard"><div class="pcard-label">Full Name</div><div class="pcard-val">Luigi B. Cocjin</div></div>
+      <div class="pcard"><div class="pcard-label">Nickname</div><div class="pcard-val">Luigi</div></div>
+      <div class="pcard"><div class="pcard-label">Year Level</div><div class="pcard-val">2nd Year</div></div>
+      <div class="pcard"><div class="pcard-label">Location</div><div class="pcard-val">Central Luzon, PH</div></div>
+      <div class="pcard"><div class="pcard-label">Hobbies</div><div class="pcard-val">— Add yours here —</div></div>
+      <div class="pcard"><div class="pcard-label">Languages</div><div class="pcard-val">Filipino, English</div></div>
+    </div>
+  </section>
+  <!-- Education -->
+  <section id="education">
+    <div class="section-label" style="margin-top: 2rem;">Education</div>
+    <div class="divider"></div>
+    <div class="edu-item">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-title">Bachelor of Science in Information Technology</div>
+        <div class="edu-sub">Guagua National Colleges · 2023 – Present</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-dot"></div>
+      <div>
+        <div class="edu-title">Senior High School</div>
+        <div class="edu-sub">— Add your school here —</div>
+      </div>
+    </div>
+  </section>
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-label" style="margin-top: 2rem;">Skills</div>
+    <div class="divider"></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Technical</div>
+        <span class="skill-pill">HTML / CSS</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">MS Office</span>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Soft Skills</div>
+        <span class="skill-pill">Communication</span>
+        <span class="skill-pill">Teamwork</span>
+        <span class="skill-pill">Problem Solving</span>
+        <span class="skill-pill">Time Management</span>
+      </div>
+      <!-- Currently Learning -->
+      <div class="skill-group">
+        <div class="skill-group-title">Currently Learning</div>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">Database Systems</span>
+        <span class="skill-pill">Networking Basics</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>Built with care · Luigi B. Cocjin · 2026</footer>
+</body>
+</html>
